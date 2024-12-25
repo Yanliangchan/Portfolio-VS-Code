@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tags */
+.nextjs {
+  border: 0.1rem solid rgb(0, 0, 0); /* Black, vibrant and sharp */
+}
+.nextjs:hover {
+  background: rgba(0, 0, 0, 0.3); /* Darker hover effect */
+}
+
+.python {
+  border: 0.1rem solid rgb(31, 120, 180); /* Brighter Python blue */
+}
+.python:hover {
+  background: rgba(31, 120, 180, 0.3);
+}
+
+.aspnet {
+  border: 0.1rem solid rgb(50, 102, 200); /* Brighter ASP.NET blue */
+}
+.aspnet:hover {
+  background: rgba(50, 102, 200, 0.3);
+}
+
+.sveltekit {
+  border: 0.1rem solid rgb(255, 90, 0); /* Brighter orange for SvelteKit */
+}
+.sveltekit:hover {
+  background: rgba(255, 90, 0, 0.3);
+}
+
+.fastapi {
+  border: 0.1rem solid rgb(0, 200, 150); /* Brighter teal for FastAPI */
+}
+.fastapi:hover {
+  background: rgba(0, 200, 150, 0.3);
+}
+
+.postgresql {
+  border: 0.1rem solid rgb(41, 109, 200); /* More vibrant PostgreSQL blue */
+}
+.postgresql:hover {
+  background: rgba(41, 109, 200, 0.3);
+}
+
+.mysql {
+  border: 0.1rem solid rgb(0, 150, 255); /* Brighter blue for MySQL */
+}
+.mysql:hover {
+  background: rgba(0, 150, 255, 0.3);
+}
+
+.csharp {
+  border: 0.1rem solid rgb(50, 140, 255); /* Brighter blue for C# */
+}
+.csharp:hover {
+  background: rgba(50, 140, 255, 0.3);
+}
+
+.cpp {
+  border: 0.1rem solid rgb(0, 75, 160); /* Deeper blue for C++ */
+}
+.cpp:hover {
+  background: rgba(0, 75, 160, 0.3);
+}
+
+.react {
+  border: 0.1rem solid rgb(0, 200, 255); /* Vibrant React blue */
+}
+.react:hover {
+  background: rgba(0, 200, 255, 0.3);
+}
+
+.node {
+  border: 0.1rem solid rgb(100, 210, 50); /* Brighter green for Node.js */
+}
+.node:hover {
+  background: rgba(100, 210, 50, 0.3);
+}
+
+.mongodb {
+  border: 0.1rem solid rgb(50, 180, 70); /* Brighter MongoDB green */
+}
+.mongodb:hover {
+  background: rgba(50, 180, 70, 0.3);
+}
+
+.redux {
+  border: 0.1rem solid rgb(150, 85, 230); /* Brighter purple for Redux */
+}
+.redux:hover {
+  background: rgba(150, 85, 230, 0.3);
+}
+
+.razorpay {
+  border: 0.1rem solid rgb(90, 160, 255); /* More vibrant Razorpay blue */
+}
+.razorpay:hover {
+  background: rgba(90, 160, 255, 0.3);
+}
+
+.material-ui {
+  border: 0.1rem solid rgb(30, 140, 255); /* Brighter Material-UI blue */
+}
+.material-ui:hover {
+  background: rgba(30, 140, 255, 0.3);
+}
+
+.bulma {
+  border: 0.1rem solid rgb(0, 230, 200); /* Brighter teal for Bulma */
+}
+.bulma:hover {
+  background: rgba(0, 230, 200, 0.3);
+}
+
+.next {
+  border: 0.1rem solid rgb(0, 140, 255); /* Brighter Next.js blue */
+}
+.next:hover {
+  background: rgba(0, 140, 255, 0.3);
+}
+
+.tailwind {
+  border: 0.1rem solid rgb(0, 220, 250); /* Brighter Tailwind cyan */
+}
+.tailwind:hover {
+  background: rgba(0, 220, 250, 0.3);
+}
+
+.react-query {
+  border: 0.1rem solid rgb(255, 80, 100); /* Brighter React Query red */
+}
+.react-query:hover {
+  background: rgba(255, 80, 100, 0.3);
+}
+
+.css-modules {
+  border: 0.1rem solid rgb(30, 130, 230); /* Brighter CSS Modules blue */
+}
+.css-modules:hover {
+  background: rgba(30, 130, 230, 0.3);
+}
+
+.assembly {
+  border: 0.1rem solid rgb(160, 30, 160); /* Brighter purple for Assembly */
+}
+.assembly:hover {
+  background: rgba(160, 30, 160, 0.3);
+}
