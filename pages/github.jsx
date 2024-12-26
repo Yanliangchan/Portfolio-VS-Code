@@ -52,40 +52,45 @@ const GithubPage = ({ repos, user, activityData }) => {
 export async function getStaticProps() {
   const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 
-  // Fetch user data
-  const userRes = await fetch(`https://api.github.com/users/${username}`, {
-    headers: {
-      Authorization: `token ${process.env.GITHUB_API_KEY}`,
-    },
-  });
-  const user = await userRes.json();
-
-  // Fetch repository data
-  const repoRes = await fetch(
-    `https://api.github.com/users/${username}/repos?per_page=100`,
-    {
+  try {
+    // Fetch user data
+    const userRes = await fetch(`https://api.github.com/users/${username}`, {
       headers: {
         Authorization: `token ${process.env.GITHUB_API_KEY}`,
       },
-    }
-  );
-  let repos = await repoRes.json();
-  repos = repos
-    .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 6);
+    });
+    const user = userRes.ok ? await userRes.json() : null;
 
-  // Mock activity data (replace this with real GitHub contributions data if available)
-  const activityData = [
-    { date: '2023-12-01', count: 5 },
-    { date: '2023-12-02', count: 3 },
-    { date: '2023-12-03', count: 7 },
-    // Add more mock data here
-  ];
+    // Fetch repository data
+    const repoRes = await fetch(
+      `https://api.github.com/users/${username}/repos?per_page=100`,
+      {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_API_KEY}`,
+        },
+      }
+    );
+    const repos = repoRes.ok ? await repoRes.json() : [];
 
-  return {
-    props: { title: 'GitHub', repos, user, activityData },
-    revalidate: 10,
-  };
+    return {
+      props: {
+        user: user || { avatar_url: '', login: '', public_repos: 0, followers: 0 }, // Default values
+        repos: Array.isArray(repos)
+          ? repos.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 6)
+          : [], // Ensure repos is an array
+      },
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.error('Error fetching GitHub data:', error);
+    return {
+      props: {
+        user: { avatar_url: '', login: '', public_repos: 0, followers: 0 }, // Default values
+        repos: [], // Fallback to an empty array
+      },
+    };
+  }
 }
+
 
 export default GithubPage;
