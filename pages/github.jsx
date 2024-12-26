@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import GitHubCalendar from 'react-github-calendar';
+import ActivityCalendar from 'react-activity-calendar';
 import RepoCard from '../components/RepoCard';
 import styles from '../styles/GithubPage.module.css';
 
-const GithubPage = ({ repos, user }) => {
+const GithubPage = ({ repos, user, activityData }) => {
   const theme = {
     level0: '#161B22',
     level1: '#0e4429',
@@ -38,8 +38,8 @@ const GithubPage = ({ repos, user }) => {
         ))}
       </div>
       <div className={styles.contributions}>
-        <GitHubCalendar
-          username={process.env.NEXT_PUBLIC_GITHUB_USERNAME}
+        <ActivityCalendar
+          data={activityData}
           theme={theme}
           hideColorLegend
           hideMonthLabels
@@ -50,18 +50,19 @@ const GithubPage = ({ repos, user }) => {
 };
 
 export async function getStaticProps() {
-  const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
-    {
-      headers: {
-        Authorization: `token ${process.env.GITHUB_API_KEY}`,
-      },
-    }
-  );
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+
+  // Fetch user data
+  const userRes = await fetch(`https://api.github.com/users/${username}`, {
+    headers: {
+      Authorization: `token ${process.env.GITHUB_API_KEY}`,
+    },
+  });
   const user = await userRes.json();
 
+  // Fetch repository data
   const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=100`,
+    `https://api.github.com/users/${username}/repos?per_page=100`,
     {
       headers: {
         Authorization: `token ${process.env.GITHUB_API_KEY}`,
@@ -73,8 +74,16 @@ export async function getStaticProps() {
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 6);
 
+  // Mock activity data (replace this with real GitHub contributions data if available)
+  const activityData = [
+    { date: '2023-12-01', count: 5 },
+    { date: '2023-12-02', count: 3 },
+    { date: '2023-12-03', count: 7 },
+    // Add more mock data here
+  ];
+
   return {
-    props: { title: 'GitHub', repos, user },
+    props: { title: 'GitHub', repos, user, activityData },
     revalidate: 10,
   };
 }
