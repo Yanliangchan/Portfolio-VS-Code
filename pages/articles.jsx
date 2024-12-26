@@ -25,21 +25,30 @@ const ArticlesPage = ({ articles }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://dev.to/api/articles/me/published?per_page=6',
-    {
+  try {
+    const res = await fetch('https://dev.to/api/articles/me/published?per_page=6', {
       headers: {
         'api-key': process.env.DEV_TO_API_KEY,
       },
+    });
+
+    if (!res.ok) {
+      console.error('Failed to fetch articles:', res.statusText);
+      return {
+        props: { articles: [] },
+      };
     }
-  );
 
-  const data = await res.json();
-
-  return {
-    props: { title: 'Articles', articles: data },
-    revalidate: 60,
-  };
-}
+    const data = await res.json();
+    return {
+      props: { articles: Array.isArray(data) ? data : [] }, 
+      revalidate: 60,
+    };
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    return {
+      props: { articles: [] },
+    };
+  }
 
 export default ArticlesPage;
