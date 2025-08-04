@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     domains: [
       'res.cloudinary.com',
@@ -8,3 +9,4 @@ module.exports = {
     unoptimized: true, // Required for static file hosting
   },
 };
+export default nextConfig;
