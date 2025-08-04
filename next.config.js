@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+import path from 'path';
 const nextConfig = {
   images: {
     domains: [
@@ -6,7 +6,7 @@ const nextConfig = {
       'avatars.githubusercontent.com',
       'imgur.com',
     ],
-    unoptimized: true, // Required for static file hosting
+    unoptimized: true, 
   },
 };
 export default nextConfig;
