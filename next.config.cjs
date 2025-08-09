@@ -6,7 +6,7 @@ const nextConfig = {
       'avatars.githubusercontent.com',
       'imgur.com',
     ],
-    unoptimized: true, 
+    unoptimized: true,
   },
 };
-module.exports = nextConfig;
+export default nextConfig;
