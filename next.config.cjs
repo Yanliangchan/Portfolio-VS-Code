@@ -1,4 +1,4 @@
-import path from 'path';
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     domains: [
@@ -9,4 +9,5 @@ const nextConfig = {
     unoptimized: true,
   },
 };
-export default nextConfig;
+
+module.exports = nextConfig;
