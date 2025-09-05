@@ -10,7 +10,7 @@ const CustomHead = ({ title }) => {
       />
       <meta
         name="keywords"
-        content="Yanliang, Chan, ranganath, web developer portfolio, nitin web developer, nitin developer, mern stack, nitin ranganath portfolio, vscode-portfolio"
+        content="Yanliang, Chan, web developer portfolio, web developer, cybersecurity, Yanliangchan, Yanliang portfolio, Chan Yanliang"
       />
       <meta property="og:title" content="Chan Yanliang's Portfolio" />
       <meta
