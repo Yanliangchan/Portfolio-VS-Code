@@ -3,7 +3,7 @@ const AboutPage = () => {
     <>
       <header className="container">
         <h1>Yanliang</h1>
-        <p>A Aspiring Purple Team with a passion in programming</p>
+        <p>An Aspiring Purple Team with a passion in programming</p>
       </header>
 
       <section className="about container">
@@ -12,7 +12,7 @@ const AboutPage = () => {
           <h2>About Me</h2>
           <p>Hello 👋 I'm Yanliang, a year 3 student studying a diploma in cybersecurity and digital forensics at Ngee Ann Polytechnic. I have hands-on experience in penetration testing and have actively participated in various Capture The Flag (CTF) competitions.</p>
           <br></br>
-          <p>Im a cybersecurity enthusiast with a passion for exploring and securing technology who enjoy web development from time to time. I enjoys giving back to society through volunteering with TJYN and playing a role in ISC2 Singapore Chapter's Youth Wing.</p>
+          <p>Im a cybersecurity enthusiast with a passion for exploring and securing technology who enjoys web development from time to time. I enjoy giving back to society through volunteering with TJYN and playing a role in ISC2 Singapore Chapter's Youth Wing.</p>
         </div>
       </section>
 
