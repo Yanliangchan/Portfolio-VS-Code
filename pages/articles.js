@@ -1,5 +1,6 @@
-import ArticleCard from '../components/ArticleCard';
-import styles from '../styles/ArticlesPage.module.css';
+// Change import statements to require()
+const ArticleCard = require('../components/ArticleCard');
+const styles = require('../styles/ArticlesPage.module.css');
 
 const ArticlesPage = ({ articles }) => {
   return (
@@ -24,7 +25,8 @@ const ArticlesPage = ({ articles }) => {
   );
 };
 
-export async function getStaticProps() {
+// Change export statements to module.exports
+async function getStaticProps() {
   try {
     const res = await fetch('https://dev.to/api/articles/me/published?per_page=6', {
       headers: {
@@ -41,7 +43,7 @@ export async function getStaticProps() {
 
     const data = await res.json();
     return {
-      props: { articles: Array.isArray(data) ? data : [] }, 
+      props: { articles: Array.isArray(data) ? data : [] },
       revalidate: 60,
     };
   } catch (error) {
@@ -50,5 +52,10 @@ export async function getStaticProps() {
       props: { articles: [] },
     };
   }
+}
 
-export default ArticlesPage;
+// Export both the page component and the data-fetching function
+module.exports = {
+  getStaticProps,
+  ArticlesPage,
+};
