@@ -8,8 +8,8 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  // Add this line to transpile the problematic package
   transpilePackages: ['react-github-calendar'],
 };
 
-module.exports = nextConfig;
+// Use export default for ES Modules
+export default nextConfig;
